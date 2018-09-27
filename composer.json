@@ -1,0 +1,17 @@
+{
+    "name": "juanmicl/igcreator",
+    "description": "Create Instagram accounts faster",
+    "license": "RPL-1.5",
+    "authors": [
+        {
+            "name": "Juan Miguel",
+            "email": "juanmipw@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "juanmicl\\igcreator\\": "src/"
+        }
+    }
+}
