@@ -2,4 +2,4 @@
 include __DIR__ . "/../vendor/autoload.php";
 
 $create = new \juanmicl\igcreator\create();
-$create->hola('this is the begining :)');
+$create->register('prueba', 'a1a2a3a4', 'prueba@correillo.es', 'MariaPerez');
