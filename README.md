@@ -1,3 +1,4 @@
+[![License](https://poser.pugx.org/phpunit/phpunit/license)](https://packagist.org/packages/juanmicl/igcreator)
 # Instagram Account Creator
 Create Instagram accounts faster with php!
 # Terms and conditions
