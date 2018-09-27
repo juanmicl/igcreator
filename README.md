@@ -1,3 +1,4 @@
+[![License](https://poser.pugx.org/juanmicl/igcreator/license)](https://packagist.org/packages/juanmicl/igcreator) [![Latest Stable Version](https://poser.pugx.org/juanmicl/igcreator/version)](https://packagist.org/packages/juanmicl/igcreator) ![compatible](https://img.shields.io/badge/PHP%207-Compatible-brightgreen.svg)
 # Instagram Account Creator
 Create Instagram accounts faster with php!
 # Terms and conditions
