@@ -43,8 +43,20 @@ class create {
 			'X-CSRFToken: '.randstring('32'),
 		);
 
-		$res = curl_request('POST', $url, $payload, $header);
-		echo $res;
+		$ig_response = json_decode(curl_request('POST', $url, $payload, $header), true);
+
+		$array = array(
+			'igcreator' => array(
+				'created' => $ig_response['account_created'],
+				'username' => $username,
+				'password' => $password,
+				'email' => $email,
+				'firstname' => $firstname,
+			),
+			'instagram' => $ig_response,
+		);
+
+		echo json_encode($array);
 	}
 
 	public function register_rand($domain){
@@ -79,20 +91,42 @@ class create {
 			'X-CSRFToken: '.randstring('32'),
 		);
 
-		$res = curl_request('POST', $url, $payload, $header);
-		echo $res;
-		echo '<br>';
-		echo $username.'<br>';
-		echo $password;
+		$ig_response = json_decode(curl_request('POST', $url, $payload, $header), true);
 
+		$array = array(
+			'igcreator' => array(
+				'created' => $ig_response['account_created'],
+				'username' => $username,
+				'password' => $password,
+				'email' => $email,
+				'firstname' => $firstname,
+			),
+			'instagram' => $ig_response,
+		);
+
+		echo json_encode($array);
 	}
 
 	public function testo(){
 
-		$url = 'https://randomuser.me/api/?nat=en&password=number,lower,10';
-		$payload = array();
-		$header = array();
-		$randomuser = json_decode(curl_request('GET', $url, $payload, $header), true);
-		var_dump($randomuser['results'][0]['login']['username']);
+		$instagram = '{"account_created": false, "errors": {"username": [{"message": "This username isnt available. Please try another.", "code": "username_is_taken"}]}, "status": "ok", "error_type": "form_validation_error"}';
+
+		$instagram = json_decode($instagram);
+
+		$array = array(
+			'igcreator' => array(
+				'created' => true,
+				'username' => 'username',
+				'password' => 'password',
+				'email' => 'email@email.com',
+				'firstname' => 'Lola Flores',
+			),
+			'instagram' => $instagram,
+		);
+
+		echo json_encode($array);
+
+		
+		//var_dump($randomuser['results'][0]['login']['username']);
 	}
 }
