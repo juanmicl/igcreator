@@ -5,9 +5,10 @@ function randstring($lenght){
 	return substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $lenght);
 }
 
-function curl_request($request, $url, $payload, $header){
+function curl_request($request, $url, $payload, $header, $proxy){
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
+		CURLOPT_PROXY => $proxy,
 		CURLOPT_URL => $url,
 		CURLOPT_RETURNTRANSFER => 1,
 		CURLOPT_CUSTOMREQUEST => $request,
@@ -18,9 +19,9 @@ function curl_request($request, $url, $payload, $header){
 	curl_close($curl);
 }
 
-class create {
+class createProxy {
 
-	public function register($username, $password, $email, $firstname){
+	public function register($username, $password, $email, $firstname, $proxy){
 
 		$url = 'https://www.instagram.com/accounts/web_create_ajax/';
 		$payload = array(
@@ -42,7 +43,7 @@ class create {
 			'X-CSRFToken: '.randstring('32'),
 		);
 
-		$ig_response = json_decode(curl_request('POST', $url, $payload, $header), true);
+		$ig_response = json_decode(curl_request('POST', $url, $payload, $header, $proxy), true);
 
 		$array = array(
 			'igcreator' => array(
@@ -63,12 +64,12 @@ class create {
 		echo json_encode($array);
 	}
 
-	public function register_rand($domain){
+	public function register_rand($domain, $proxy){
 
 		$url = 'https://randomuser.me/api/?nat=en&password=number,lower,10';
 		$payload = array();
 		$header = array();
-		$randomuser = json_decode(curl_request('GET', $url, $payload, $header), true);
+		$randomuser = json_decode(curl_request('GET', $url, $payload, $header, $proxy), true);
 		
 		$username = $randomuser['results'][0]['login']['username'];
 		$password = $randomuser['results'][0]['login']['password'];
@@ -95,7 +96,7 @@ class create {
 			'X-CSRFToken: '.randstring('32'),
 		);
 
-		$ig_response = json_decode(curl_request('POST', $url, $payload, $header), true);
+		$ig_response = json_decode(curl_request('POST', $url, $payload, $header, $proxy), true);
 
 		$array = array(
 			'igcreator' => array(
