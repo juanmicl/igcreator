@@ -14,7 +14,6 @@ function curl_request($request, $url, $payload, $header){
 		CURLOPT_CUSTOMREQUEST => $request,
 		CURLOPT_POSTFIELDS => http_build_query($payload),
 		CURLOPT_HTTPHEADER => $header,
-		CURLOPT_COOKIEJAR => realpath('cookies222222222.txt'),
 	));
 	return curl_exec($curl);
 	curl_close($curl);
