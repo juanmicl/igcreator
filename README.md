@@ -20,6 +20,7 @@ You can download it [here](https://getcomposer.org/download/).
 _Composer checks your system's capabilities and selects libraries based on your **current** machine (where you are running the `composer` command). So if you run Composer on machine `A` to install this library, it will check machine `A`'s capabilities and will install libraries appropriate for that machine (such as installing the PHP 7+ versions of various libraries). If you then move your whole installation to machine `B` instead, it **will not work** unless machine `B` has the **exact** same capabilities (same or higher PHP version and PHP extensions)! Therefore, you should **always** run the Composer-command on your intended target machine instead of your local machine._
 ## Examples
 All examples can be found [here](https://github.com/juanmicl/igcreator/tree/master/examples).
+You can just copy this folder inside your project and test the scripts.
 # Terms and conditions
 - You will NOT use this script for marketing purposes (spam, botting, harassment, massive bulk messaging...).
 - We do NOT give support to anyone who wants to use this API to send spam or commit other crimes.
