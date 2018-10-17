@@ -65,7 +65,7 @@ class create {
 
 	public function register_rand($domain){
 
-		$url = 'https://randomuser.me/api/?nat=en&password=number,lower,10';
+		$url = 'https://randomuser.me/api/?nat=GB&password=number,lower,10';
 		$payload = array();
 		$header = array();
 		$randomuser = json_decode(curl_request('GET', $url, $payload, $header), true);
